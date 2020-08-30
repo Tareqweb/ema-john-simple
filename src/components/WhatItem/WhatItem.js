@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhatItem = (props) => {
     // console.log(props);
-    const{name,quantity}=props.product;
+    const{name,quantity,key,price}=props.product;
     const whatItemStyle={
         borderBottom:'1px solid lightgray',
         marginBottom:'5px',
@@ -14,8 +14,12 @@ const WhatItem = (props) => {
         <div style={whatItemStyle}>
             <h4 className="product-name">{name}</h4>
             <p>Quantity:{quantity}</p>
+            <p><small>${price}</small></p>
             <br/>
-            <button className="main-button">Remove</button>
+            <button 
+            className="main-button"
+            onClick={()=>props.removeProduct(key)}
+            >Remove</button>
         </div>
     );
 };
